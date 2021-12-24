@@ -37,7 +37,7 @@ const Root = styled('div')(({ theme }) => ({
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  user_email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+  email: yup.string().email('You must enter a valid email').required('You must enter a email'),
   password: yup
     .string()
     .required('Please enter your password.')
@@ -45,7 +45,7 @@ const schema = yup.object().shape({
 });
 
 const defaultValues = {
-  user_email: '',
+  email: '',
   password: '',
   username: '',
   birth: '',
@@ -102,7 +102,7 @@ export default function Login3Page() {
               onSubmit={handleSubmit(async (data) => {await dispatch(loginRequest(data))})}
             >
               <Controller
-                name="user_email"
+                name="email"
                 control={control}
                 render={({ field }) => (
                   <TextField
@@ -111,8 +111,8 @@ export default function Login3Page() {
                     label="Email"
                     autoFocus
                     type="email"
-                    error={!!errors.user_email}
-                    helperText={errors?.user_email?.message}
+                    error={!!errors.email}
+                    helperText={errors?.email?.message}
                     variant="outlined"
                     required
                     fullWidth

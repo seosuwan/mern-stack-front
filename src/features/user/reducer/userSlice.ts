@@ -28,6 +28,16 @@ export interface UserLoginDataPayload {
     }
     tokenData: string
   }
+  config: {
+    data: {
+      username: string;
+      email: string;
+      phone: string;
+      address: string;
+      password: string;
+      birth: string;
+    }
+  }
 }
 export interface UserModifyDataPayload {
   data: {
@@ -41,7 +51,7 @@ export interface UserModifyDataPayload {
   config: {
     data: {
       username: string;
-      user_email: string;
+      email: string;
       phone: string;
       address: string;
       password: string;
@@ -53,14 +63,13 @@ export interface UserModifyDataPayload {
 
 //요청하는 데이터
 export interface ExistPayload {
-  user_email: string;
+  email: string;
 }
 export interface RemovePayload {
-  user_email: string;
-  password: string;
+  email: string;
 }
 export interface LoginPayload {
-  user_email: string;
+  email: string;
   password: string;
   token: string;
   username: string;
@@ -70,7 +79,7 @@ export interface LoginPayload {
 }
 
 export interface ModifyPayload {
-  user_email: string;
+  email: string;
   phone: string;
   address: string;
   password: string;
@@ -80,7 +89,7 @@ export interface ModifyPayload {
 }
 export interface JoinPayload {
   username: string;
-  user_email: string;
+  email: string;
   phone: string;
   address: string;
   password: string;
@@ -97,7 +106,7 @@ export interface UserState {
 }
 // api의 param 타입
 export interface ParamType {
-  user_email: number;
+  email: number;
 }
 const initialState: UserState = {
   userLoading: false,
@@ -164,6 +173,18 @@ const userSlice = createSlice({
     existFailure(state: UserState, action: PayloadAction<{ error: any }>) {
       state.userLoading = true;
       state.error = null;
+    },
+    deleteRequest(state: UserState, _action: PayloadAction<RemovePayload>) {
+      state.userLoading = true;
+      state.error = null;
+    },
+    deleteSuccess(state: UserState, action: PayloadAction<UserDataPayload>) {
+      state.userLoading = false;
+      state.userData = action.payload;
+    },
+    deleteFailure(state: UserState, action: PayloadAction<{ error: any }>) {
+      state.userLoading = true;
+      state.error = null;
     }
 
   },
@@ -189,6 +210,9 @@ export const {
   joinFailure,
   joinRequest,
   joinSuccess,
+  deleteFailure,
+  deleteRequest,
+  deleteSuccess
 
 } = actions;
 export default reducer;

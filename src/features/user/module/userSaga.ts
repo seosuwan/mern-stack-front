@@ -20,27 +20,30 @@ import {
   modifyRequest,
   UserLoginDataPayload,
   UserModifyDataPayload,
+  deleteRequest,
+  RemovePayload,
+  deleteSuccess,
 } from "features/user/reducer/userSlice";
 import { userAPI } from "features/user";
 
+function* remove(action: PayloadAction<RemovePayload>) {
+  try {
+    alert(action.payload)
+    const result: UserDataPayload = yield call(
+      userAPI.removeAPI,
+      action.payload
+    );
+    alert("돌아옴")
+    yield put(deleteSuccess(result));
+    localStorage.clear()
+    window.location.href = "/home"
 
-// function* token(action: PayloadAction<TokenPayload>) {
-//   // try {
-//   //   const {data} = await axios.post('/api/auth/signin', {email, password});
-//   //   console.log(data);
-//   try {
-//     const result: UserDataPayload = yield call(
-//       userAPI.tokenAPI,
-//       action.payload
-//     );
-//     dispatch(setToken(data.token))
-//     const { redirectUrl } = queryString.parse(props.location.search);
-//     if (redirectUrl) {
-//       props.history.push(redirectUrl);
-//     } else {
-//       props.history.push('/');
-//     }
-//   }
+
+  } catch (error: any) {
+    // alert("아이디오류")
+    yield put(modifyFailure(error));
+  }
+}
 
 function* exist(action: PayloadAction<ExistPayload>) {
     try {
@@ -139,4 +142,7 @@ function* exist(action: PayloadAction<ExistPayload>) {
   }
   export function* watchModify() {
     yield takeLatest(modifyRequest.type, modify);
+  }
+  export function* watchRemove() {
+    yield takeLatest(deleteRequest.type, remove);
   }

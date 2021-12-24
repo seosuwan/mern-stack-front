@@ -1,14 +1,22 @@
 import {  Button, Modal,Row, Card } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react';
+import { deleteRequest } from '../reducer/userSlice';
+import {useDispatch} from 'react-redux'
 
 
 export default function UserDelete(){
      const sessionUser = JSON.parse(window.localStorage.getItem('sessionUser'))
+     const dispatch = useDispatch()
 
       // Modal
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
+
+      // const handleSubmit = async (data) => {
+      //   alert("눌렀어요")
+      //    dispatch(deleteRequest(data))
+      // };
      
       useEffect(() => {
         console.log();
@@ -37,8 +45,7 @@ export default function UserDelete(){
           <Button variant="secondary" onClick={handleClose}>
             아니요!!!!
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-          {/* onClick={handleDelete} */}
+          <Button variant="primary" onClick={(async () => {await dispatch(deleteRequest(sessionUser.email))})}>
             그래!!!나 탈퇴할거야
           </Button>
         </Modal.Footer>
