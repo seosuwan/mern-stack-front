@@ -20,6 +20,7 @@ function loginAPI(data: LoginPayload) {
 //   return axios.post(`${SERVER}users/`, JSON.stringify(data), { headers });
 // }
 function joinAPI(data: JoinPayload) {
+  alert(`=====넘어감${JSON.stringify(data)}`)
   return axios.post(`${SERVER}users/join`, JSON.stringify(data), { headers });
 }
 function existAPI(data: ExistPayload) {

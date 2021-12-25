@@ -63,6 +63,7 @@ function* exist(action: PayloadAction<ExistPayload>) {
 
   function* join(action: PayloadAction<JoinPayload>) {
     try {
+      
       const result: UserDataPayload = yield call(
         userAPI.joinAPI,
         action.payload

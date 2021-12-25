@@ -27,7 +27,7 @@ const schema = yup.object().shape({
     .string()
     .required('Please enter your password.')
     .min(8, 'Password is too short - should be 8 chars minimum.'),
-  passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
+ 
   birth: yup.string().required('주민번호 앞 6 자리')
             .min(6, '너무 짧습니다.'),
   address: yup.string().required('거주 도시명 까지만 적어주세요!')
@@ -216,25 +216,7 @@ export default function Register3Page() {
                     )}
                   />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <Controller
-                    name="passwordConfirm"
-                    control={control}
-                    render={({ field }) => (
-                      <TextField
-                        {...field}
-                        className="mb-16"
-                        label="passwordConfirm"
-                        type="passwordConfirm"
-                        error={!!errors.password}
-                        helperText={errors?.password?.message}
-                        variant="outlined"
-                        required
-                        fullWidth
-                      />
-                    )}
-                  />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+                 
                   <div className="wrap">
                   <h4>Check List 작성하기</h4>
                   <label component="legend">관심있는 직업이 무엇입니까?</label><br/>
@@ -243,50 +225,36 @@ export default function Register3Page() {
                     control={control}
                     render={({ field }) => (
                       <>
-                      <input className="checkbox"
+                      <input 
                         {...field}
                         label="job"
                         type="radio"
                         value= "운동선수"
-                        id="select0"
                      
                         
                       />
-                      <label for="select0" className="input-label checkbox" value= "운동선수">운동선수</label>
-                    </>)}
-                  />
-                   <Controller
-                    name="job"
-                    control={control}
-                    render={({ field }) => (
+                      <label  value= "운동선수">운동선수</label>
                       <>
-                      <input className="checkbox"
+                      <input 
                         {...field}
                         label="job"
                         type="radio"
                         value= "화가"
-                        id="select1"
-                        checked
                       />
-                     <label for="select1" className="input-label checkbox" value= "화가">화가</label>
-                    </>)}
-                  />
-                
-                <Controller
-                    name="job"
-                    control={control}
-                    render={({ field }) => (
-                      <>
-                      <input className="checkbox"
+                     <label value= "화가">화가</label>
+                    </>
+                    <>
+                      <input 
                         {...field}
                         label="job"
                         type="radio"
                         value= "개발자"
-                        id="select2"
                       />
-                     <label for="select2" className="input-label checkbox" value= "개발자">개발자</label>
+                     <label  value= "개발자">개발자</label>
+                    </>
                     </>)}
                   />
+                
                   <div>
                   <label component="legend">취미가 무엇입니까?</label><br/>
                    <Controller
@@ -294,52 +262,36 @@ export default function Register3Page() {
                     control={control}
                     render={({ field }) => (
                       <>
-                      <input className="checkbox"
+                      <input 
                         {...field}
                         label="user_interests"
                         type="radio"
                         value= "공연보기"
-                        id="select4"
                         
                       />
-                      <label for="select4" className="input-label checkbox" value= "공연보기">공연보기</label>
-                      </>
-                    )}
-                  />
-                   <Controller
-                    name="user_interests"
-                    control={control}
-                    render={({ field }) => (
+                      <label value= "공연보기">공연보기</label>
                       <>
-                      <input className="checkbox"
+                      <input 
                         {...field}
                         label="user_interests"
                         type="radio"
                         value= "다이어트"
-                        id="select5"
-                        checked
                       />
-                      <label for="select5" className="input-label checkbox" value= "다이어트">다이어트</label>
+                      <label  value= "다이어트">다이어트</label>
                       </>
-                    )}
-                  />
-                 <Controller
-                    name="user_interests"
-                    control={control}
-                    render={({ field }) => (
                       <>
-                      <input className="checkbox"
+                      <input 
                         {...field}
                         label="user_interests"
                         type="radio"
                         value= "영화보기"
-                        id="select6"
                       />
-                        <label for="select6" className="input-label checkbox" value= "영화보기">영화보기</label>
+                        <label  value= "영화보기">영화보기</label>
                       </>
+                      </>
+                      
                     )}
                   />
-                
                   </div>
                   </div>
               
