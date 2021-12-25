@@ -1,3 +1,4 @@
+import AlertModal from "../components/AlertModal";
 import BoardEdit from "../components/BoardEdit";
 import BoardList from "../components/BoardList";
 import BoardRegister from "../components/BoardRegister";
@@ -14,6 +15,7 @@ export default function Board (){
             <CommentList></CommentList>
             <BoardEdit></BoardEdit>
              */}
+             <AlertModal></AlertModal>
 
             
 

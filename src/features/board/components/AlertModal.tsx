@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Button, Modal} from "react-bootstrap";
 
 interface Props {
@@ -11,6 +11,10 @@ interface Props {
 }
 
 const AlertModal: React.FC<Props> = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <Modal
       show={props.show}
@@ -31,6 +35,7 @@ const AlertModal: React.FC<Props> = (props) => {
         <Button onClick={props.onOk}>Ok</Button>
       </Modal.Footer>
     </Modal>
+    
   );
 };
 

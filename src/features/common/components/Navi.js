@@ -17,8 +17,8 @@ export default function Navigation() {
         <li><Link to="/test/SBChartTest"><span>SBChartTest</span></Link></li>
         <li><Link to="/users/login"><span>로그인</span></Link></li>
         <li><Link to="/users/join" ><span>회원가입</span></Link></li>
-        <li><Link to="/admin/adminLogin" ><span>admin</span></Link></li>
-         */}
+        <li><Link to="/admin/adminLogin" ><span>admin</span></Link></li> */}
+        
         <li><Link to="/home"><span>Home</span></Link></li>
         {localStorage.length > 0 ?<>
         <li><Link to="/diary/diary" ><span>다이어리</span></Link></li>

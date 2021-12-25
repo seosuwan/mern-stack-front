@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import 'features/setting/style/Setting.scss'
 import { UserDelete, UserModify } from 'features/user';
 import Board from 'features/board/containers/Board';
+import AlertModal from 'features/board/components/AlertModal';
 
 
 const setting = () => {
@@ -25,6 +26,8 @@ const setting = () => {
                 <p data-aos='fade-down'>
                     <p>QnA 등록</p>
                       <div><UserDelete/></div>
+                      {/* <Link className="btn6" data-aos="fade-up" to="/users/delete">삭제하셈</Link><br /> */}
+                      {/* <AlertModal></AlertModal> */}
                     </p>
             </div>
             <div >

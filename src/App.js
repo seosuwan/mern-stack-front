@@ -3,6 +3,7 @@ import { Home } from "features/common";
 import {
   CheckList,
   ForgotPassword,
+  UserDelete,
   UserLogin,
   UserRegister,
 } from "features/user";
@@ -43,6 +44,7 @@ const App = () => {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/qna/QnA' element={<QnACreate/>} />
         <Route path='/mypage/setting' element={<Setting/>} />
+        <Route path='/users/delete' element={<UserDelete/>} />
       </Routes>
     </div>
   );

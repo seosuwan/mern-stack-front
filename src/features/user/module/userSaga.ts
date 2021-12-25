@@ -63,14 +63,13 @@ function* exist(action: PayloadAction<ExistPayload>) {
 
   function* join(action: PayloadAction<JoinPayload>) {
     try {
-      console.log(action)
       const result: UserDataPayload = yield call(
-
         userAPI.joinAPI,
         action.payload
       );
       yield put(joinSuccess(result));
       window.location.href = 'users/login'
+      alert("🎄회원가입을 축하드립니다🎄")
     } catch (error: any) {
       // alert("아이디오류")
       yield put(joinFailure(error));
@@ -82,27 +81,11 @@ function* exist(action: PayloadAction<ExistPayload>) {
         userAPI.loginAPI,
         action.payload
       );
-      console.log(`===========================서버에서 받은 값${JSON.stringify(result)}`)
-      // alert(`===============payload=================${JSON.stringify(action.payload)}`)
-      // const token: UserDataPayload = yield call(
-      //   userAPI.tokenAPI,
-      //   action_t.payload
-      // );
-      //요청 성공시
       yield put(loginSuccess(result));
-      alert(`============= raw ===================${JSON.stringify(result)}`)
-      console.log(`============= raw ===================${JSON.stringify(result)}`)
-      alert(`============= result ===================${JSON.stringify(result.data.userData)}`)
-      alert(`=============token===================${JSON.parse(JSON.stringify(result.data.tokenData))}`)
       window.localStorage.setItem('sessionToken', JSON.parse(JSON.stringify(result.data.tokenData)))
       window.localStorage.setItem('sessionUser', JSON.stringify(result.data.userData))
-      // window.localStorage.setItem('sessionUser', JSON.stringify(result.config.data.username))
-      // window.localStorage.setItem('sessionModify', JSON.stringify(result.config.data))
-      alert(`============= sessionToken - saved ===================${window.localStorage.getItem('sessionToken')}`)
-      alert(`============= sessionUser - saved ===================${window.localStorage.getItem('sessionUser')}`)
       window.location.href = "/home"
     } catch (error: any) {
-      alert(`error :: ${error}`)
       alert("아이디 혹은 비밀번호가 틀렸습니다!")
       yield put(loginFailure(error));
     }

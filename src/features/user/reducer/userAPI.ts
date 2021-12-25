@@ -20,11 +20,9 @@ function loginAPI(data: LoginPayload) {
 //   return axios.post(`${SERVER}users/`, JSON.stringify(data), { headers });
 // }
 function joinAPI(data: JoinPayload) {
-  alert(`${JSON.stringify(data)}`)
   return axios.post(`${SERVER}users/join`, JSON.stringify(data), { headers });
 }
 function existAPI(data: ExistPayload) {
-  alert("간다!!!!!!!!!!!!!!!!!!")
   return axios.get(`${SERVER}users/exist/${data}`);
 }
 function modifyAPI(data: ModifyPayload) {
@@ -32,7 +30,6 @@ function modifyAPI(data: ModifyPayload) {
   return axios.put(`${SERVER}users/modify`, JSON.stringify(data), { headers });
 }
 function removeAPI(data: RemovePayload) {
-  alert("갑니당")
   return axios.delete(`${SERVER}users/remove/${data}`);
 }
 function listAPI(data: "") {

@@ -1,8 +1,13 @@
 // import SBGrid from "./SBGrid";
 import { useEffect, useState } from "react";
 import SBChart from "./SBChart";
+import {Button, Modal} from "react-bootstrap";
 
 function SBChartTest() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   // const [datagrid, setDatagrid] = useState(null);
   // const [datagrid2, setDatagrid2] = useState(null);
   const [chart, setChartData] = useState(null);
@@ -115,6 +120,54 @@ function SBChartTest() {
         }}
         setChartData={setChartData}
       />
+      <Button variant="primary" onClick={handleShow}>
+        Launch static backdrop modal
+      </Button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        style={{
+          overlay: {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.75)'
+          },
+          content: {
+            position: 'absolute',
+            top: '40px',
+            left: '40px',
+            right: '40px',
+            bottom: '40px',
+            border: '1px solid #ccc',
+            background: '#fff',
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            borderRadius: '4px',
+            outline: 'none',
+            padding: '20px'
+          }
+        }}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+         디지고싶냐 모달 안뜨냐?
+         
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary">Understood</Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

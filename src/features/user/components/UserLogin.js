@@ -7,8 +7,6 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
@@ -18,7 +16,7 @@ import { LayOut } from 'features/common';
 import "features/common/font/font.scss"
 import 'features/common/style/image.scss'
 import 'features/user/style/UserLayout.scss'
-import { loginRequest, tokenRequest } from '../reducer/userSlice';
+import { loginRequest} from '../reducer/userSlice';
 import 'features/user/style/UserLogin.scss'
 
 const Root = styled('div')(({ theme }) => ({
