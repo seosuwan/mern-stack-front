@@ -8,6 +8,7 @@ const headers = {
 };
 
 function CreateAPI(data: BoardData) {
+  alert("갑니당")
   return axios.post(`${SERVER}board/create`,JSON.stringify(data), {headers});
 }
 function ListAPI(data:BoardData ){

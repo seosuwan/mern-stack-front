@@ -13,6 +13,8 @@ export default function Board (){
         <div style={{textAlign: 'center'}}>
             <h1>자유게시판</h1>
             <BoardList/>
+        <h1>게시판 등록</h1>
+        <BoardRegister/>
         </div>
         </LayOut>
     )

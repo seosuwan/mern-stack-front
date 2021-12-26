@@ -1,9 +1,12 @@
 import { useState } from "react";
 import {Button, Form} from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { BoardData, createRequest } from "../reducer/boardSlice";
-
+import {jwtUtils} from "../utils/jwtUtils";
 
 const BoardRegister: React.FC = (props: any) => {
+  const token = useSelector((state: any) => state.userData);
+  const dispatch = useDispatch()
   const [validated, setValidated] = useState(false);
  
   const handleSubmit = (event: any) => {
@@ -18,18 +21,26 @@ const BoardRegister: React.FC = (props: any) => {
  
     setValidated(true);
     // Form.Grou의 controlid는 control의 id를 생성 => form[id] => control 노드 로 접근
-    console.log(form.titleInput.value);
-    const board = {
+    alert(`========폼 타이틀 값${form.titleInput.value}`);
+    alert(`========폼 컨텐츠 값${form.contentText.value}`);
+    const data = {
       title: form.titleInput.value,
-      content: form.contentText.value
+      content: form.contentText.value,
+      user_id: jwtUtils.getId(token)
     }
-    addBoard(board);
+    alert(`========폼 타이틀 값 들어감? ${form.titleInput.value}`);
+    alert(`========폼 컨텐츠 값 들어감? ${form.contentText.value}`);
+    alert(`========폼 토큰 들어감? ${jwtUtils.getId(token)}`);
+    alert(`=======뭐야 넌${JSON.stringify(addBoard(data))}`)
+    addBoard(data);
+    alert(`=======뭐야 넌 담겼냐?${JSON.stringify(addBoard(data))}`)
+
  
-    props.history.push('/');
+    // props.history.push('/home');
   };
  
-  const addBoard = async (board: BoardData) => {
-    createRequest
+  const addBoard = async (data: BoardData) => {
+    dispatch(createRequest(data))
   }
  
   return (

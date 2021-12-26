@@ -2,7 +2,6 @@ import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 //받아오는 데이터//
 
-
 export interface UserDataPayload {
   data: {
     user: {
@@ -13,8 +12,10 @@ export interface UserDataPayload {
       password: string;
       birth: string;
       token: string;
-    }
-  }
+      user_interests: string;
+      job: string;
+    };
+  };
 }
 export interface UserLoginDataPayload {
   data: {
@@ -25,29 +26,16 @@ export interface UserLoginDataPayload {
       address: string;
       password: string;
       birth: string;
-    }
-    tokenData: string
-  }
-  config: {
-    data: {
-      username: string;
-      email: string;
-      phone: string;
-      address: string;
-      password: string;
-      birth: string;
-    }
-  }
+      user_interests: string;
+      job: string;
+    };
+    tokenData: string;
+  };
 }
 export interface UserModifyDataPayload {
   data: {
-    
-    token: string
-  }
-  // status: number,
-  // statusText: string,
-  // content_length: string
-  // content_type: string
+    token: string;
+  };
   config: {
     data: {
       username: string;
@@ -56,9 +44,8 @@ export interface UserModifyDataPayload {
       address: string;
       password: string;
       birth: string;
-    }
-
-  }
+    };
+  };
 }
 
 //요청하는 데이터
@@ -112,21 +99,23 @@ const initialState: UserState = {
   userLoading: false,
   userData: null,
   error: null,
-  token: null
+  token: null,
 };
 
 const userSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-
     // Login
     loginRequest(state: UserState, _action: PayloadAction<LoginPayload>) {
       state.userLoading = true;
       state.error = null;
     },
 
-    loginSuccess(state: UserState, action: PayloadAction<UserLoginDataPayload>) {
+    loginSuccess(
+      state: UserState,
+      action: PayloadAction<UserLoginDataPayload>
+    ) {
       state.userLoading = false;
       state.userData = action.payload;
     },
@@ -153,7 +142,10 @@ const userSlice = createSlice({
       state.userLoading = true;
       state.error = null;
     },
-    modifySuccess(state: UserState, action: PayloadAction<UserModifyDataPayload>) {
+    modifySuccess(
+      state: UserState,
+      action: PayloadAction<UserModifyDataPayload>
+    ) {
       state.userLoading = false;
       state.userData = action.payload;
     },
@@ -185,8 +177,7 @@ const userSlice = createSlice({
     deleteFailure(state: UserState, action: PayloadAction<{ error: any }>) {
       state.userLoading = true;
       state.error = null;
-    }
-
+    },
   },
 });
 
@@ -212,7 +203,6 @@ export const {
   joinSuccess,
   deleteFailure,
   deleteRequest,
-  deleteSuccess
-
+  deleteSuccess,
 } = actions;
 export default reducer;

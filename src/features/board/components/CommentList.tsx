@@ -87,7 +87,8 @@ const CommentList: React.FC<Props> = (props) => {
       </Form>
       {
         comments.map((comment: CommentData) =>
-          <Row className="comment" key={comment.id}>
+          // <Row className="comment" key={comment.id}>
+          <Row className="comment" key={"서수완"}>
             <Col xs={12}>
               <div className="d-flex justify-content-between">
                 <span className="date">{comment.user?.username}</span>
