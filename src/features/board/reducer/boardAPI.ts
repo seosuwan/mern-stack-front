@@ -10,8 +10,12 @@ const headers = {
 function CreateAPI(data: BoardData) {
   return axios.post(`${SERVER}board/create`,JSON.stringify(data), {headers});
 }
+function ListAPI(data:BoardData ){
+  return axios.get(`${SERVER}board/list/${data}`) 
+}
 
 export default {
     CreateAPI,
+    ListAPI
 
 };

@@ -19,6 +19,7 @@ import { Chatbot } from "features/chatbot";
 import { QnACreate, Setting } from "features/setting";
 import SBChart from "features/admin/components/SBChart";
 import SBChartTest from "features/admin/components/SBChartTest";
+import { Board } from "features/board";
 //Attempted import error: 'Action' is not exported from 'history'. histroy 버전 5로 업.
 //yarn add craco-alias @craco/craco
 
@@ -45,6 +46,7 @@ const App = () => {
         <Route path='/qna/QnA' element={<QnACreate/>} />
         <Route path='/mypage/setting' element={<Setting/>} />
         <Route path='/users/delete' element={<UserDelete/>} />
+        <Route path='/board/board' element={<Board/>} />
       </Routes>
     </div>
   );

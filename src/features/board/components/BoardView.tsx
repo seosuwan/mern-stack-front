@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Row, Modal } from 'react-bootstrap';
 import { BoardData } from '../reducer/boardSlice';
+import BoardModal from './BoardModal';
 
 
 const BoardView = ({match, history}: any) => {
@@ -34,34 +35,24 @@ const BoardView = ({match, history}: any) => {
     <>
       <Row className="justify-content-end">
         <Button variant="info" onClick={() => history.push(`/board-edit/${match.params.id}`)}>수정</Button>
-        <Button variant="danger" onClick={() => handleShow()}>삭제</Button>
+        <BoardModal/>
       </Row>
       <Card className="p-3 my-3">
-        <Card.Title className="pb-2" style={{borderBottom: '1px solid #dddddd'}}>{board?.title}</Card.Title>
-        <Card.Text>
+        {/* <Card.Title className="pb-2" style={{borderBottom: '1px solid #dddddd'}}>{board?.title}</Card.Title> */}
+        <Card.Title className="pb-2" style={{borderBottom: '1px solid #dddddd'}}>궁금합니다</Card.Title>
+        {/* <Card.Text>
           {board?.content}
+        </Card.Text> */}
+         <Card.Text>
+           회원가입 어떻게 하나열
         </Card.Text>
       </Card>
       {/* <commentlist board_id="{match.params.id}"></commentlist> */}
       <Row className="justify-content-center">
         <Button variant="primary" onClick={() => history.goBack()}>돌아가기</Button>
       </Row>
- 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>삭제</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>삭제하시겠습니까?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-          {/* onClick={handleDelete} */}
-            OK
-          </Button>
-        </Modal.Footer>
-      </Modal>
+    
+      
     </>
   );
 };

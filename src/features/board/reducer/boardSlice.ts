@@ -21,7 +21,6 @@ export interface CommentData {
   }
 //요청데이터
 export interface UserData {
-    id?: number;
     email?: string;
     password?: string;
     username?: string;
@@ -36,7 +35,7 @@ export interface CreateDataPayload{
     updated?: string;
     user?: UserData;
 }
-export interface UserState {
+export interface boardState {
   boardLoading: boolean;
   boardData: any;
   error: any;
@@ -46,7 +45,7 @@ export interface UserState {
 export interface ParamType {
   email?: string;
 }
-const initialState: UserState = {
+const initialState: boardState = {
   boardLoading: false,
   boardData: null,
   error: null,
@@ -54,22 +53,35 @@ const initialState: UserState = {
 };
 
 const boardSlice = createSlice({
-  name: "users",
+  name: "boards",
   initialState,
   reducers: {
 
-    // Login
-    createRequest(state: UserState, _action: PayloadAction<BoardData>) {
+    createRequest(state: boardState, _action: PayloadAction<BoardData>) {
       state.boardLoading = true;
       state.error = null;
     },
 
-    createSuccess(state: UserState, action: PayloadAction<CreateDataPayload>) {
+    createSuccess(state: boardState, action: PayloadAction<CreateDataPayload>) {
       state.boardLoading = false;
       state.boardData = action.payload;
     },
 
-    createFailure(state: UserState, action: PayloadAction<{ error: any }>) {
+    createFailure(state: boardState, action: PayloadAction<{ error: any }>) {
+      state.boardLoading = false;
+      state.error = action.payload;
+    },
+    listRequest(state: boardState, _action: PayloadAction<BoardData>) {
+      state.boardLoading = true;
+      state.error = null;
+    },
+
+    listSuccess(state: boardState, action: PayloadAction<CreateDataPayload>) {
+      state.boardLoading = false;
+      state.boardData = action.payload;
+    },
+
+    listFailure(state: boardState, action: PayloadAction<{ error: any }>) {
       state.boardLoading = false;
       state.error = action.payload;
     },
@@ -88,7 +100,10 @@ const { reducer, actions } = boardSlice;
 export const {
   createRequest,
   createSuccess,
-  createFailure
+  createFailure,
+  listRequest,
+  listSuccess,
+  listFailure
 
 } = actions;
 export default reducer;

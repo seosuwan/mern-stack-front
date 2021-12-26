@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CreateDataPayload, createRequest, RootState } from "../reducer/boardSlice";
+import { CreateDataPayload, createRequest, listRequest, RootState } from "../reducer/boardSlice";
 
 
 export default function useUser() {
@@ -10,8 +10,11 @@ export default function useUser() {
   const create = useCallback((data: CreateDataPayload) => {
     dispatch(createRequest(data));
   }, []);
+  const list = useCallback((data: CreateDataPayload) => {
+    dispatch(listRequest(data));
+  },[]);
 
  
 
-  return { boardLoading, create  };
+  return { boardLoading, create, list  };
 }

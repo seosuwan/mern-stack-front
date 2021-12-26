@@ -35,11 +35,11 @@ const Root = styled('div')(({ theme }) => ({
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+  email: yup.string().email("이메일형식으로 입력하세요").required("필수필드 입니다."),
   password: yup
     .string()
-    .required('Please enter your password.')
-    .min(8, 'Password is too short - should be 8 chars minimum.'),
+    .required('"필수필드 입니다.".')
+    .min(8, '비밀번호는 8자 이상 써주세요'),
 });
 
 const defaultValues = {
