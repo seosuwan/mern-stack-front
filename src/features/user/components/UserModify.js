@@ -33,6 +33,7 @@ export default function UserModify() {
     user_interests: sessionUser.user_interests,
     job: sessionUser.job,
   };
+  const {job, user_interests} = defaultValues
 
   const { control, formState, handleSubmit, reset, getValues } = useForm({
     mode: "onChange",
@@ -206,7 +207,7 @@ export default function UserModify() {
                       type="radio"
                       value="운동선수"
                       id="select0"
-                      checked={field.job == "운동선수"}
+                      defaultChecked={job == "운동선수"}
                     />
                     <label
                       for="select0"
@@ -223,7 +224,7 @@ export default function UserModify() {
                         type="radio"
                         value="화가"
                         id="select1"
-                        checked={field.job == "화가"}
+                        defaultChecked={job == "화가"}
                       />
                       <label
                         for="select1"
@@ -241,7 +242,7 @@ export default function UserModify() {
                         type="radio"
                         value="개발자"
                         id="select2"
-                        checked={field.job == "개발자"}
+                        defaultChecked={job == "개발자"}
                       />
                       <label
                         for="select2"
@@ -270,7 +271,7 @@ export default function UserModify() {
                         type="radio"
                         value="공연보기"
                         id="select3"
-                        checked={field.user_interests == "공연보기"}
+                        defaultChecked={user_interests == "공연보기"}
                       />
                       <label
                         for="select3"
@@ -287,7 +288,7 @@ export default function UserModify() {
                           type="radio"
                           value="다이어트"
                           id="select4"
-                          checked={field.user_interests == "다이어트"}
+                          defaultChecked={user_interests == "다이어트"}
                         />
                         <label
                           for="select4"
@@ -305,7 +306,7 @@ export default function UserModify() {
                           type="radio"
                           value="영화보기"
                           id="select5"
-                          checked={field.user_interests == "영화보기"}
+                          defaultChecked={user_interests == "영화보기"}
                           
                         />
                         <label

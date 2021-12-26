@@ -43,7 +43,7 @@ const schema = yup.object().shape({
 });
 
 const defaultValues = {
-  email: '',
+  email: 'admin@admin.com',
   password: '',
   username: '',
   birth: '',
@@ -109,6 +109,7 @@ export default function Login3Page() {
                     label="Email"
                     autoFocus
                     type="email"
+                    name='admin@admin.com'
                     error={!!errors.email}
                     helperText={errors?.email?.message}
                     variant="outlined"
@@ -128,6 +129,7 @@ export default function Login3Page() {
                     className="mb-16"
                     label="Password"
                     type="password"
+                    name='123123123'
                     error={!!errors.password}
                     helperText={errors?.password?.message}
                     variant="outlined"

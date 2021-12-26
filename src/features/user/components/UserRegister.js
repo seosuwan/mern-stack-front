@@ -36,12 +36,12 @@ const schema = yup.object().shape({
 });
 
 const defaultValues = {
-  username: '',
-  email: '',
-  phone: '',
-  birth: '',
-  password: '',
-  address: '',
+  username: 'admin',
+  email: 'admin@admin.com',
+  phone: '000-0000-0000',
+  birth: '1993-08-23',
+  password: '123123123',
+  address: 'seoul',
   user_interests:'',
   job:''
 
@@ -110,6 +110,7 @@ export default function Register3Page() {
                         {...field}
                         className="mb-16"
                         label="Name"
+                        name='admin'
                         autoFocus
                         type="username"
                         error={!!errors.username}
@@ -133,6 +134,7 @@ export default function Register3Page() {
                         className="mb-16"
                         label="Email"
                         type="email"
+                        name='admin@admin.com'
                         error={!!errors.email}
                         helperText={errors?.email?.message}
                         variant="outlined"
@@ -154,6 +156,7 @@ export default function Register3Page() {
                         className="mb-16"
                         label="Phone"
                         type="text"
+                        name='000-0000-0000'
                         error={!!errors.phone}
                         helperText={errors?.phone?.message}
                         variant="outlined"
@@ -173,6 +176,7 @@ export default function Register3Page() {
                         className="mb-16"
                         label="Birth"
                         type="text"
+                        name='1993-08-23'
                         error={!!errors.birth}
                         helperText={errors?.birth?.message}
                         variant="outlined"
@@ -191,6 +195,7 @@ export default function Register3Page() {
                         className="mb-16"
                         label="address"
                         type="address"
+                        name='seoul'
                         error={!!errors.address}
                         helperText={errors?.address?.message}
                         variant="outlined"
@@ -208,6 +213,7 @@ export default function Register3Page() {
                         className="mb-16"
                         label="Password"
                         type="password"
+                        name='123123123'
                         error={!!errors.password}
                         helperText={errors?.password?.message}
                         variant="outlined"
