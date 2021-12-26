@@ -11,16 +11,17 @@ import { Link } from "react-router-dom";
 import _ from "@lodash";
 import "features/user/style/UserModify.scss";
 import { modifyRequest } from "../reducer/userSlice";
+import { useState } from "react";
 
 export default function UserModify() {
   const sessionUser = JSON.parse(window.localStorage.getItem("sessionUser"));
   var radio = document.getElementsByName("job");
-  var radioDefault; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
-  for (var i = 0; i < radio.length; i++) {
-    if (radio[i].checked) {
-      radioDefault += radio[i].value;
-    }
-  }
+  // var radioDefault; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+  // for (var i = 0; i < radio.length; i++) {
+  //   if (radio[i].checked) {
+  //     radioDefault += radio[i].value;
+  //   }
+  // }
 
   const defaultValues = {
     username: sessionUser.username,
@@ -32,6 +33,7 @@ export default function UserModify() {
     user_interests: sessionUser.user_interests,
     job: sessionUser.job,
   };
+
   const { control, formState, handleSubmit, reset, getValues } = useForm({
     mode: "onChange",
     defaultValues,
@@ -195,36 +197,59 @@ export default function UserModify() {
               <Controller
                 name="job"
                 control={control}
-                checked={defaultValues}
                 render={({ field }) => (
                   <>
                     <input
+                      className="checkbox"
                       {...field}
                       label="job"
                       type="radio"
                       value="운동선수"
-                      defaultValue={radio}
+                      id="select0"
+                      checked={field.job == "운동선수"}
                     />
-                    <label value="운동선수">운동선수</label>
+                    <label
+                      for="select0"
+                      className="input-label checkbox"
+                      value="운동선수"
+                    >
+                      운동선수
+                    </label>
                     <>
                       <input
+                        className="checkbox"
                         {...field}
                         label="job"
                         type="radio"
                         value="화가"
-                        defaultValue={radio}
+                        id="select1"
+                        checked={field.job == "화가"}
                       />
-                      <label value="화가">화가</label>
+                      <label
+                        for="select1"
+                        className="input-label checkbox"
+                        value="화가"
+                      >
+                        화가
+                      </label>
                     </>
                     <>
                       <input
+                        className="checkbox"
                         {...field}
                         label="job"
                         type="radio"
                         value="개발자"
-                        defaultValue={radio}
+                        id="select2"
+                        checked={field.job == "개발자"}
                       />
-                      <label value="개발자">개발자</label>
+                      <label
+                        for="select2"
+                        className="input-label checkbox"
+                        value="개발자"
+                      >
+                        개발자
+                      </label>
                     </>
                   </>
                 )}
@@ -236,36 +261,60 @@ export default function UserModify() {
                 <Controller
                   name="user_interests"
                   control={control}
-                  checked={defaultValues}
                   render={({ field }) => (
                     <>
                       <input
+                        className="checkbox"
                         {...field}
                         label="user_interests"
                         type="radio"
                         value="공연보기"
-                        defaultValue={radioDefault}
+                        id="select3"
+                        checked={field.user_interests == "공연보기"}
                       />
-                      <label value="공연보기">공연보기</label>
+                      <label
+                        for="select3"
+                        className="input-label checkbox"
+                        value="공연보기"
+                      >
+                        공연보기
+                      </label>
                       <>
                         <input
+                          className="checkbox"
                           {...field}
                           label="user_interests"
                           type="radio"
                           value="다이어트"
-                          defaultValue={radioDefault}
+                          id="select4"
+                          checked={field.user_interests == "다이어트"}
                         />
-                        <label value="다이어트">다이어트</label>
+                        <label
+                          for="select4"
+                          className="input-label checkbox"
+                          value="다이어트"
+                        >
+                          다이어트
+                        </label>
                       </>
                       <>
                         <input
+                          className="checkbox"
                           {...field}
                           label="user_interests"
                           type="radio"
                           value="영화보기"
-                          defaultValue={radioDefault}
+                          id="select5"
+                          checked={field.user_interests == "영화보기"}
+                          
                         />
-                        <label value="영화보기">영화보기</label>
+                        <label
+                          for="select5"
+                          className="input-label checkbox"
+                          value="영화보기"
+                        >
+                          영화보기
+                        </label>
                       </>
                     </>
                   )}

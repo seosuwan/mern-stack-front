@@ -47,6 +47,7 @@ const defaultValues = {
 
 };
 
+
 export default function Register3Page() {
   const { control, formState, handleSubmit, reset, getValues } = useForm({
     mode: 'onChange',
@@ -225,32 +226,35 @@ export default function Register3Page() {
                     control={control}
                     render={({ field }) => (
                       <>
-                      <input 
+                      <input className="checkbox"
                         {...field}
                         label="job"
                         type="radio"
                         value= "운동선수"
-                     
+                        id="select0"
                         
                       />
-                      <label  value= "운동선수">운동선수</label>
+                      <label for="select0" className="input-label checkbox"  value= "운동선수">운동선수</label>
                       <>
-                      <input 
+                      <input className="checkbox"
                         {...field}
                         label="job"
                         type="radio"
                         value= "화가"
+                        id="select1"
                       />
-                     <label value= "화가">화가</label>
+                     <label for="select1" className="input-label checkbox" value= "화가">화가</label>
                     </>
                     <>
-                      <input 
+                      <input className="checkbox"
                         {...field}
                         label="job"
                         type="radio"
                         value= "개발자"
+                        id="select2"
+                        for="select2" className="input-label checkbox"
                       />
-                     <label  value= "개발자">개발자</label>
+                     <label for="select2" className="input-label checkbox"  value= "개발자">개발자</label>
                     </>
                     </>)}
                   />
@@ -262,31 +266,35 @@ export default function Register3Page() {
                     control={control}
                     render={({ field }) => (
                       <>
-                      <input 
+                      <input className="checkbox"
                         {...field}
                         label="user_interests"
                         type="radio"
                         value= "공연보기"
+                        id="select3"
                         
                       />
-                      <label value= "공연보기">공연보기</label>
+                      <label for="select3" className="input-label checkbox" value= "공연보기">공연보기</label>
                       <>
-                      <input 
+                      <input className="checkbox"
                         {...field}
                         label="user_interests"
                         type="radio"
                         value= "다이어트"
+                        id="select4"
                       />
-                      <label  value= "다이어트">다이어트</label>
+                      <label for="select4" className="input-label checkbox"  value= "다이어트">다이어트</label>
                       </>
                       <>
-                      <input 
+                      <input className="checkbox"
                         {...field}
                         label="user_interests"
                         type="radio"
                         value= "영화보기"
+                        id="select5"
+                        
                       />
-                        <label  value= "영화보기">영화보기</label>
+                        <label for="select5" className="input-label checkbox" value= "영화보기">영화보기</label>
                       </>
                       </>
                       
