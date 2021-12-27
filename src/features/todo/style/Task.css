@@ -338,4 +338,37 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 2560px) {
+  .todoapp {
+    margin-left: 934px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .todoapp {
+    margin-left: 425px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .todoapp {
+    margin-left: 384px;
+    width: 710px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .todoapp {
+    margin-left: 280px;
+    width: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .todoapp {
+    margin-left: 280px;
+    width: 400px;
+  }
+}
 /*# sourceMappingURL=Task.css.map */

@@ -178,6 +178,18 @@ const userSlice = createSlice({
       state.userLoading = true;
       state.error = null;
     },
+    listRequest(state: UserState, _action: PayloadAction<RemovePayload>) {
+      state.userLoading = true;
+      state.error = null;
+    },
+    listSuccess(state: UserState, action: PayloadAction<UserDataPayload>) {
+      state.userLoading = false;
+      state.userData = action.payload;
+    },
+    listFailure(state: UserState, action: PayloadAction<{ error: any }>) {
+      state.userLoading = true;
+      state.error = null;
+    },
   },
 });
 

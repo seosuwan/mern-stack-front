@@ -63,10 +63,11 @@
   }
 }
 
-@media (max-width: 1536px) {
+@media (max-width: 1440px) {
   .Watch {
     text-align: center;
     width: 10vw;
+    margin-left: -90px;
   }
   .dp {
     text-align: center;

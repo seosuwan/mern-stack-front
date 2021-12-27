@@ -32,7 +32,6 @@ export default function Navigation() {
         :<>
         <li><Link to="/users/login"><span>로그인</span></Link></li>
         <li><Link to="/users/join" ><span>회원가입</span></Link></li>
-        <li><Link to="/history/history"><span>히스토리</span></Link></li>
         <li><Link to="/admin/adminLogin" ><span>admin</span></Link></li></>}
         
          </ul>
