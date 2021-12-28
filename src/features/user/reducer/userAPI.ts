@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ModifyPayload,ExistPayload, JoinPayload, LoginPayload, RemovePayload } from "./userSlice";
 // const SERVER = "http://127.0.0.1:8000/api/";
-const SERVER = "http://127.0.0.1:3001/";
+const SERVER = "http://127.0.0.1:3001/ "
 const headers = {
   "Content-Type": "application/json",
   Authorization: "JWT fefege..",

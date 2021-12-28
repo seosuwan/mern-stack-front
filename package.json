@@ -121,7 +121,7 @@
         "react": "17.0.2",
         "react-dom": "17.0.2"
     },
-    "proxy": "http://127.0.0.3:8000/api/",
+
     "resolutions": {
         "react": "17.0.2",
         "react-dom": "17.0.2",
